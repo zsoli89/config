@@ -1,0 +1,12 @@
+server:
+  port: 8083
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8085/eureka/
+hu:
+  webuni:
+    tokenlib:
+      keypaths:
+        public: /Users/Download/public.pem
+        private: /Users/Download/private.pem

@@ -1,0 +1,30 @@
+server:
+  port: 8080
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8085/eureka/
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: catalog
+#          lb miatt lesz loadbalancer, nem beegetunk url-t, ami bejon loadbalancold
+          uri: lb://catalog
+#          predicates alapjan kell matchelni
+          predicates:
+          - Path=/catalog/**
+#          filters:
+#          - RewritePath=/currency(?<segment>/?.*), /api$\{segment}
+        - id: order
+          uri: lb://order
+          predicates:
+          - Path=/order/**
+#          filters:
+#          - RewritePath=/bonus(?<segment>/?.*), /api$\{segment}
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+          - Path=/user-service/**
+#          filters:
+#          - RewritePath=/flights(?<segment>/?.*), /api$\{segment}
