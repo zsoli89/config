@@ -14,17 +14,17 @@ spring:
 #          predicates alapjan kell matchelni
           predicates:
           - Path=/catalog/**
-#          filters:
-#          - RewritePath=/currency(?<segment>/?.*), /api$\{segment}
+          filters:
+          - RewritePath=/catalog(?<segment>/?.*), /api$\{segment}
         - id: order
           uri: lb://order
           predicates:
           - Path=/order/**
-#          filters:
-#          - RewritePath=/bonus(?<segment>/?.*), /api$\{segment}
+          filters:
+          - RewritePath=/order(?<segment>/?.*), /api$\{segment}
         - id: user-service
           uri: lb://user-service
           predicates:
           - Path=/user-service/**
-#          filters:
-#          - RewritePath=/flights(?<segment>/?.*), /api$\{segment}
+          filters:
+          - RewritePath=/user(?<segment>/?.*), /api$\{segment}
