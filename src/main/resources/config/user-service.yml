@@ -8,5 +8,5 @@ hu:
   webuni:
     tokenlib:
       keypaths:
-        public: /Users/Download/public.pem
-        private: /Users/Download/private.pem
+        public: /Users/zsoli/Gdf/Szakdolgozat/public.pem
+        private: /Users/zsoli/Gdf/Szakdolgozat/private.pem
