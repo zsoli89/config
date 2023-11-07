@@ -8,7 +8,7 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: catalog
+        - id: catalog-service
 #          lb miatt lesz loadbalancer, nem beegetunk url-t, ami bejon loadbalancold
           uri: lb://catalog
 #          predicates alapjan kell matchelni
@@ -16,15 +16,15 @@ spring:
           - Path=/catalog/**
           filters:
           - RewritePath=/catalog(?<segment>/?.*), /api$\{segment}
-        - id: order
+        - id: order-service
           uri: lb://order
           predicates:
           - Path=/order/**
           filters:
           - RewritePath=/order(?<segment>/?.*), /api$\{segment}
         - id: user-service
-          uri: lb://user-service
+          uri: lb://user
           predicates:
-          - Path=/user-service/**
+          - Path=/user/**
           filters:
           - RewritePath=/user(?<segment>/?.*), /api$\{segment}

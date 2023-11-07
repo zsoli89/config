@@ -8,4 +8,4 @@ hu:
   webuni:
     tokenlib:
       keypaths:
-        public: /Users/Download/public.pem
+        public: /Users/zsoli/Gdf/Szakdolgozat/public.pem
